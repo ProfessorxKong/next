@@ -175,7 +175,7 @@ export default function Page() {
 
                     )}
                 />
-                {form.getValues('producttype') == 'customer' && <FormField
+                {form.watch('producttype') == 'customer' && <FormField
                     control={form.control}
                     name="weight"
                     render={({ field }) => (
@@ -189,7 +189,6 @@ export default function Page() {
                                     <SelectContent>
                                         <SelectGroup>
                                             {/* <SelectLabel>类型</SelectLabel> */}
-
                                             <SelectItem value="630">630</SelectItem>
                                             <SelectItem value="1000">1000</SelectItem>
                                             <SelectItem value="1250">1250</SelectItem>
@@ -203,7 +202,7 @@ export default function Page() {
 
                     )}
                 />}
-                {form.getValues('producttype') == 'customer' && <FormField
+                {form.watch('producttype') == 'customer' && <FormField
                     control={form.control}
                     name="width"
                     render={({ field }) => (
@@ -217,9 +216,9 @@ export default function Page() {
                                     <SelectContent>
                                         <SelectGroup>
                                             {/* <SelectLabel>类型</SelectLabel> */}
-                                            {form.getValues('weight') == 630 && <SelectItem value="1100">1100</SelectItem>}
-                                            {form.getValues('weight') == (1000 | 1250) && <SelectItem value="1200">1200</SelectItem>}
-                                            {form.getValues('weight') == 1250 && <SelectItem value="1600">1600</SelectItem>}
+                                            {form.watch('weight') == 630 && <SelectItem value="1100">1100</SelectItem>}
+                                            {form.watch('weight') == (1000 | 1250) && <SelectItem value="1200">1200</SelectItem>}
+                                            {form.watch('weight') == 1250 && <SelectItem value="1600">1600</SelectItem>}
                                             <Input placeholder="自定义轿厢宽度（毫⽶）（1000-2000）" {...field} />
                                         </SelectGroup>
                                     </SelectContent>
@@ -230,7 +229,7 @@ export default function Page() {
 
                     )}
                 />}
-                {form.getValues('producttype') == 'customer' && <FormField
+                {form.watch('producttype') == 'customer' && <FormField
                     control={form.control}
                     name="depth"
                     render={({ field }) => (
@@ -244,8 +243,8 @@ export default function Page() {
                                     <SelectContent>
                                         <SelectGroup>
                                             {/* <SelectLabel>类型</SelectLabel> */}
-                                            {(form.getValues('weight') == 630 || (form.getValues('weight') == 1250 && form.getValues('width') == 1600)) && <SelectItem value="1400">1400</SelectItem>}
-                                            {(form.getValues('weight') == 1000 || (form.getValues('weight') == 1250 && form.getValues('width') == 1200)) && <SelectItem value="2100">2100</SelectItem>}
+                                            {(form.watch('weight') == 630 || (form.watch('weight') == 1250 && form.watch('width') == 1600)) && <SelectItem value="1400">1400</SelectItem>}
+                                            {(form.watch('weight') == 1000 || (form.watch('weight') == 1250 && form.watch('width') == 1200)) && <SelectItem value="2100">2100</SelectItem>}
                                             <Input placeholder="自定义轿厢深度（毫⽶）（1000-2500）" {...field} />
                                         </SelectGroup>
                                     </SelectContent>
